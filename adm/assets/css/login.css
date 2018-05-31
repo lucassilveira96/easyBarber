@@ -1,0 +1,16 @@
+body{
+      -webkit-background-size: auto auto;
+      -moz-background-size: auto auto;
+      -o-background-size: auto auto;
+      background-size: auto auto;
+}
+
+.vertical-offset-100{
+    padding-top:100px;
+}
+p{
+    font-family: rainbow bridge personal use;
+    font-size: 06pc;
+    color: rgb(253, 250, 250);
+
+}
