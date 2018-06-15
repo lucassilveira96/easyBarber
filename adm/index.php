@@ -137,6 +137,12 @@ else{
 							$cod=$_GET['id'];
 							$horario -> deletehorarios($cod);
 							break;		
+							case 'adf':
+							$horario->adddia();
+							break;
+						case 'cdf':
+							$horario->addDiaFuncionamento();
+							break;
 					}
 				}
 			break;
@@ -178,6 +184,9 @@ else{
 				else{
 					switch($_REQUEST['a']){
 						case 'lg':
+							$horario->selectdatelist();
+							break;
+						case 'lga':
 							$horario->listagenda();
 							break;
 						case 'ag':
@@ -193,6 +202,7 @@ else{
 						case 'lhg':
 							$horario->listhorariosdisp();
 							break;
+						
 					}
 				}
 			break;

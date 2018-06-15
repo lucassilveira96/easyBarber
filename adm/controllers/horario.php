@@ -39,5 +39,17 @@
             $barbearia -> deletehorarios($cod);
             $this -> listhorarios();
         }
+        public function adddia(){
+            require_once ("views/header.php");
+            require_once ("views/horarios/insertDiaFuncionamento.php");
+            require_once ("views/footer.php");
+        }
+        public function addDiaFuncionamento(){
+            $diaFuncionamento=$_POST['date'];
+            $horario = new horariosModel();
+            $horario -> addDiaFuncionamento($diaFuncionamento);
+            $result=$horario -> getConsult();
+            $this -> listhorarios();
+        }
     }
     ?>

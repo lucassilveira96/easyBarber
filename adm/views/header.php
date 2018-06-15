@@ -3,7 +3,10 @@
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pagina administrador</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title></title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -73,7 +76,7 @@
                         </ul>
                       </li>  
                       <li>
-                        <a href="#"><i class="fa fa-child fa-2x"></i>Profissionais<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-id-badge fa-2x"></i>Profissionais<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="?c=p&a=ap">inserir</a>
@@ -88,6 +91,9 @@
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="?c=g&a=ag">inserir</a>
+                            </li>
+                            <li>
+                                <a href="?c=h&a=adf">dia funcionamento</a>
                             </li>
                             <li>
                                 <a href="?c=g&a=lg">listar</a>

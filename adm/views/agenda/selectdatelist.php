@@ -1,35 +1,14 @@
+
 <center><h1>Agendar Horarios</h1></center>
-<form action="?c=g&a=lhg" id="form" class="form-horizontal" method=POST enctype='multipart/form-data'>
+<form action="?c=g&a=lga" id="form" class="form-horizontal" method=POST enctype='multipart/form-data'>
 <fieldset>
 
 
 <div class="control-group">
-    <center><p>Selecione a data para o serviço:</p></center>
+    <center><p>Lista horários agendados:</p></center>
     <center><input type="date" id="date" name="date" required=""></center>
   </div>
-  <div class="control-group">
-      <center><p>Selecione o serviço:</p></center>
-                <center><select name="servico" id="servico" required="">
-               
-                <?php 
-                  $Servicos = new servicosModel();
-                  $Servicos -> listServicos();
-                  $result = $Servicos -> getConsult();
-                  
-                  $arrayServicos = array();
-      
-                  while($line = $result->fetch_assoc()){
-                      array_push($arrayServicos,$line);
-                  }
-                
-                foreach($arrayServicos as $servico) { ?>
-
-                    <option value="<?=$servico['id'];?>" name="servico"> <?= $servico['nome'];?> </option>
-
-                <?php } ?>
-                ?>
-                </select></center>
-  </div>
+ 
   <div class="control-group">
       <center><p>Selecione o Profissional:</p></center>
                 <center><select name="profissionais" id="profissionais" required="">

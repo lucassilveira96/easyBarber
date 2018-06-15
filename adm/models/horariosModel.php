@@ -35,6 +35,13 @@
             $sql = "DELETE FROM horarios WHERE id='".$cod."';";
             $this ->result = $conn -> query($sql);
         }
+        public function addDiaFuncionamento($dia){
+            $Oconn = new connectClass();
+            $Oconn -> openConnect();
+            $conn = $Oconn -> getconn();
+            $sql = "INSERT into dia_func (data_func) value ('$dia')";
+            $this ->result = $conn -> query($sql);
+        }
         public function getConsult(){
             return $this -> result;
         }

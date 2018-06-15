@@ -7,24 +7,18 @@
 
 
 <div class="control-group">
-  <label class="control-label" for="nome">Nome Completo</label>
-  <div class="controls">
-    <input name="name" class="input-xlarge" id="nome" required="" type="text" placeholder="Seu Nome">
-    
-  </div>
+  <center> Nome Completo</label></center>
+    <center><input name="name" class="input-xlarge" id="nome" required="" type="text" placeholder="Seu Nome"></center>
 </div>
 
 
 <div class="control-group">
-  <label class="control-label" for="telefone">Telefone</label>
-  <div class="controls">
-    <input name="tel" class="input-xlarge" id="telefone" required="" type="text" placeholder="Ex.: (99) 9999-9999">
-    
-  </div>
+  <center><p>Telefone:</p></center>
+    <center><input name="tel" class="input-xlarge" id="telefone" required="" type="text" placeholder="Ex.: (99) 9999-9999"></center>
 </div>
 <div class="control-group">
-<label class="control-label">Serviço</label>
-                <select name="servico" id="servico" required="">
+<center> Serviço</center>
+                <center><select name="servico" id="servico" required="">
                
                 <?php 
                   $Servicos = new servicosModel();
@@ -43,11 +37,11 @@
 
                 <?php } ?>
                 ?>
-                </select>
+                </select></center>
   </div>
   <div class="control-group">
-<label class="control-label">Serviço</label>
-                <select name="servico2" id="servico2">
+            <center><p>Serviço</p></center>
+              <center><select name="servico2" id="servico2">
                 
                 <option>Selecione o Serviço</option>
                
@@ -68,12 +62,12 @@
 
                 <?php } ?>
                 ?>
-                </select>
+                </select></center>  
   </div>
 <div class="control-group">
   <label class="control-label" for="enviar"></label>
   <div class="controls">
-    <button type="submit" class="btn btn-success">Enviar</button>
+    <center><button type="submit" class="btn btn-success">Cadastrar</button></center>
   </div>
 </div>
 

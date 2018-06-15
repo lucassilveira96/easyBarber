@@ -3,13 +3,16 @@
         function __construct(){
             require_once ("models/agendaModel.php");
             require_once ("models/servicosModel.php");
+            require_once ("models/clientsModel.php");
             require_once ("models/profissionaisModel.php");
+
+
 
         }
         public function listhorariosdisp(){
-            $arrayagenda["data"] = $_POST["date"];
-            $date = $_POST['date']; 
+            $arrayagenda["date"] = $_POST["date"];
             $arrayagenda["servico"] = $_POST["servico"];
+            $arrayagenda["profissionais"] = $_POST["profissionais"];
             $agenda = new agendaModel();
             $agenda -> listhorariosdisp($arrayagenda);
             $result = $agenda -> getConsult();
@@ -23,11 +26,17 @@
             require_once ("views/footer.php");
         }
 
-
+        public function selectdatelist(){
+            require_once ("views/header.php");
+            require_once ("views/agenda/selectdatelist.php");
+            require_once ("views/footer.php");
+        }
 
         public function listagenda(){
+            $arrayagenda['data']=$_POST['date'];
+            $arrayagenda['profissionais']=$_POST['profissionais'];
             $agenda = new agendaModel();
-            $agenda -> listagenda();
+            $agenda -> listagenda($arrayagenda);
             $result = $agenda -> getConsult();
             
             $arrayagenda = array();

@@ -1,21 +1,35 @@
 <center><h1>Horários disponíveis</h1></center>
-<table class='table'>
+<table class='table table-striped table-bordered table-hover'>
     <tr>
-        <th>Data</th>
         <th>Horário</th>
-        <th>Serviço</th>
-        <th>Profissional</th>
+        <th>Cliente</th>
         <th colspan='1'>ação</th>
     </tr>
     <?php
         foreach ($arrayagenda as $agenda){
          ?>   
             <tr>
-                <td><?=date('d/m/Y', strtotime($date));?></td>
                 <td><?=$agenda["hora"]?></td>
-                <td><?=$agenda["servico"]?></td>
-                <td><?=$agenda["profissional"]?></td>
-                <td><a class="btn btn-success" href="?c=c&a=alc&id=<?=$agenda["id"]?>">Agendar</a></td>
+                <th><select name="clients" id="clients" required="">
+               
+               <?php 
+                 $client = new clientsModel();
+                 $client -> listClients();
+                 $result = $client -> getConsult();
+                 
+                 $arrayClients = array();
+     
+                 while($line = $result->fetch_assoc()){
+                     array_push($arrayClients,$line);
+                 }
+               foreach($arrayClients as $clients) { ?>
+
+                   <option value="<?=$clients['id'];?>" name="clients"> <?= $clients['nome'];?> </option>
+
+               <?php } ?>
+               ?>
+               </select></th>
+                <td><a class="btn btn-success" href="?c=c&a=alc&id=<?=$agenda["hora"]?>">Agendar</a></td>
             </tr>
 
 

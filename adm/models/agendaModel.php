@@ -9,14 +9,49 @@
             $Oconn = new connectClass();
             $Oconn -> openConnect();
             $conn = $Oconn -> getconn();
-            $sql = 'SELECT ph.id,p.nome as profissional,h.hora as hora,s.nome as servico,a.datas from agenda a right join profissionais_horarios ph on ph.id=a.profissionais_horarios_id inner join horarios h on h.id=ph.hora_id inner join profissionais p on p.id=ph.profissionais_id inner join horarios_sp hsp on hsp.hora_id=h.id inner join servicos_por_profissionais sp on sp.id=hsp.servicos_profissionais_id inner join servicos s on s.id=sp.servicos_id where a.situacao is null and s.id='.$arrayagenda['servico'].';';
+            $sql = "SELECT df.data_func as datas,p.nome as profissional,s.nome as servico,h.hora as hora
+            from agenda a
+                right join date_as_servicos ds
+                    on ds.id=a.date_as_servicos_id
+                inner join dia_func df
+                    on df.id=ds.data_func_id
+                inner join horarios_servicos hs
+                    on hs.id=ds.horarios_servicos_id
+                inner join horarios h
+                    on h.id=hs.horarios_id
+                inner join servicos_por_profissionais sp
+                    on sp.id=hs.servicos_profissionais_id
+                inner join profissionais p
+                    on p.id=sp.profissionais_id
+                inner join servicos s
+                    on s.id=sp.servicos_id
+                    where df.data_func= '".$arrayagenda['date']."' and ds.situacao is null and a.situacao is null and s.id='".$arrayagenda['servico']."' and p.id='".$arrayagenda['profissionais']."'
+                    order by df.data_func, h.hora;";
             $this ->result = $conn -> query($sql); 
         }
-        public function listagenda(){
+        public function listagenda($arrayagenda){
             $Oconn = new connectClass();
             $Oconn -> openConnect();
             $conn = $Oconn -> getconn();
-            $sql = 'SELECT a.id as id,c.nome as cliente,s.nome as servico,p.nome as profissional,a.datas as datas,h.hora as hora  FROM agenda a INNER JOIN servicos_por_profissionais sp on sp.id=a.servicos_profissionais_id INNER JOIN horarios h on h.id=a.hora_id INNER JOIN servicos s on sp.servicos_id=s.id INNER JOIN profissionais p on p.id=sp.profissionais_id INNER JOIN clientes c on c.id=a.clientes_id;';
+            $sql = 'SELECT df.data_func as datas,p.nome as profissional,s.nome as servico,h.hora as hora,c.nome as clientes
+            from agenda a
+                inner join date_as_servicos ds
+                    on ds.id=a.date_as_servicos_id
+                inner join dia_func df
+                    on df.id=ds.data_func_id
+                inner join horarios_servicos hs
+                    on hs.id=ds.horarios_servicos_id
+                inner join horarios h
+                    on h.id=hs.horarios_id
+                inner join servicos_por_profissionais sp
+                    on sp.id=hs.servicos_profissionais_id
+                inner join profissionais p
+                    on p.id=sp.profissionais_id
+                inner join servicos s
+                    on s.id=sp.servicos_id
+                inner join clientes c 
+                    on c.id=a.clientes_id
+                where p.id='.$arrayagenda['profissionais'].'';
             $this ->result = $conn -> query($sql);
         }
         public function consultagenda($cod){

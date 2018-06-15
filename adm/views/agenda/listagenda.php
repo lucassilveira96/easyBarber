@@ -1,5 +1,6 @@
+
 <center><h1>Agenda</h1></center>
-<table class='table'>
+<table class='table table-striped table-bordered table-dark table-hover'>
     <tr>
         <th>Código</th>
         <th>Cliente</th>
