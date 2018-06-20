@@ -76,7 +76,7 @@
                         </ul>
                       </li>  
                       <li>
-                        <a href="#"><i class="fa fa-id-badge fa-2x"></i>Profissionais<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-user fa-2x"></i>Profissionais<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="?c=p&a=ap">inserir</a>

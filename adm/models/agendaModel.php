@@ -9,7 +9,7 @@
             $Oconn = new connectClass();
             $Oconn -> openConnect();
             $conn = $Oconn -> getconn();
-            $sql = "SELECT df.data_func as datas,p.nome as profissional,s.nome as servico,h.hora as hora
+            $sql = "SELECT df.data_func as datas,p.nome as profissional,s.nome as servico,h.hora as hora,ds.id
             from agenda a
                 right join date_as_servicos ds
                     on ds.id=a.date_as_servicos_id
@@ -33,7 +33,7 @@
             $Oconn = new connectClass();
             $Oconn -> openConnect();
             $conn = $Oconn -> getconn();
-            $sql = 'SELECT df.data_func as datas,p.nome as profissional,s.nome as servico,h.hora as hora,c.nome as clientes
+            $sql = 'SELECT df.data_func as datas,p.nome as profissional,s.nome as servico,h.hora as hora,c.nome as cliente,a.id
             from agenda a
                 inner join date_as_servicos ds
                     on ds.id=a.date_as_servicos_id
@@ -51,7 +51,7 @@
                     on s.id=sp.servicos_id
                 inner join clientes c 
                     on c.id=a.clientes_id
-                where p.id='.$arrayagenda['profissionais'].'';
+                ';
             $this ->result = $conn -> query($sql);
         }
         public function consultagenda($cod){
@@ -65,36 +65,9 @@
             $Oconn = new connectClass();
             $Oconn -> openConnect();
             $conn = $Oconn -> getconn();
-            $sql = "INSERT INTO agenda(nome,telefone) VALUES ('".$arrayagenda['name']."','".$arrayagenda['tel']."');";
-            $conn -> query($sql);
-            $sql = "SELECT id FROM agenda where nome=".$arrayagenda['name']."";
+            $sql = "INSERT INTO agenda(clientes_id,date_as_servicos_id,situacao) VALUES ('".$arrayagenda['cliente']."','".$arrayagenda['id']."',1);";
             $conn -> query($sql);
             $this ->result = $conn -> insert_id;
-            $sql = "INSERT INTO servicos_por_agenda(agenda_id,servicos_id) VALUES ($this->result,'".$arrayagenda['servico']."');";
-            $conn -> query($sql);
-            $sql = "INSERT INTO servicos_por_agenda(agenda_id,servicos_id) VALUES ($this->result,'".$arrayagenda['servico2']."');";
-            $conn -> query($sql);
-            $this ->result = $conn -> insert_id;
-        }
-        public function insertagenda1servico($arrayagenda){
-            $Oconn = new connectClass();
-            $Oconn -> openConnect();
-            $conn = $Oconn -> getconn();
-            $sql = "INSERT INTO agenda(nome,telefone) VALUES ('".$arrayagenda['name']."','".$arrayagenda['tel']."');";
-            $conn -> query($sql);
-            $sql = "SELECT id FROM agenda where nome=".$arrayagenda['name']."";
-            $conn -> query($sql);
-            $this ->result = $conn -> insert_id;
-            $sql = "INSERT INTO servicos_por_agenda(agenda_id,servicos_id) VALUES ($this->result,'".$arrayagenda['servico']."');";
-            $conn -> query($sql);
-            $this ->result = $conn -> insert_id;
-        }
-        public function updateagenda($arrayagenda){
-            $Oconn = new connectClass();
-            $Oconn -> openConnect();
-            $conn = $Oconn -> getconn();
-            $sql = "UPDATE agenda set nome='".$arrayagenda['name']."', telefone='".$arrayagenda['tel']."' where id=".$arrayagenda['cod'].";";
-            $this ->result = $conn -> query($sql);
         }
         public function deleteagenda($cod){
             $Oconn = new connectClass();

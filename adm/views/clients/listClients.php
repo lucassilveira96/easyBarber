@@ -1,6 +1,6 @@
 <center><h1>Lista de Clientes</h1></center>
 <a class="btn btn-danger" href="?c=c&a=ac">adicionar</a>
-<table class='table'>
+<table class='table table-striped table-bordered table-dark table-hover'>
     <tr>
         <th>Código</th>
         <th>Nome</th>

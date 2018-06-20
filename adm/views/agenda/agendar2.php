@@ -29,7 +29,7 @@
                <?php } ?>
                ?>
                </select></th>
-                <td><a class="btn btn-success" href="?c=c&a=alc&id=<?=$agenda["hora"]?>">Agendar</a></td>
+                <td><a class="btn btn-success" href="?c=g&a=aca&id=<?=$agenda["id"]?>&cliente=<?=$clients['id']?>">Agendar</a></td>
             </tr>
 
 

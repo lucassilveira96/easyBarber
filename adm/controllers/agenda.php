@@ -62,14 +62,13 @@
             require_once ("views/agenda/agendar.php");
             require_once ("views/footer.php");
         }
-        public function insertagenda(){
-            $arrayagenda["name"] = $_POST["name"];
-            $arrayagenda["tel"] = $_POST["tel"];
+        public function inserirAgenda(){
+            $arrayagenda["id"] = $_REQUEST["id"];
+            $arrayagenda["cliente"] = $_REQUEST["cliente"];
             $agenda = new agendaModel();
             $agenda -> insertagenda($arrayagenda);
             $idagenda = $agenda -> getConsult();
-            $this -> listagenda();
-
+            
         }
         public function alteragenda($cod){
             $agenda = new agendaModel();

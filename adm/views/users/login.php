@@ -37,8 +37,8 @@
 			  	<div class="panel-body">
 			    	<form  action="?c=u&a=cl" method="POST" accept-charset="UTF-8" role="form">
                     <fieldset>
-			    	  	<div class="form-group">
-						    <input class="form-control" placeholder="E-mail" name="login" type="text">
+                    <i class="fa fa-user fa-2x"></i><div class="form-group">
+                          <input class="form-control" placeholder="E-mail" name="login" type="text">
 			    		</div>
 			    		<div class="form-group">
 			    			<input class="form-control" placeholder="Password" name="senha" type="password" value="">

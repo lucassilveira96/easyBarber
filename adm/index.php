@@ -202,6 +202,9 @@ else{
 						case 'lhg':
 							$horario->listhorariosdisp();
 							break;
+						case 'aca':
+							$horario->inserirAgenda();
+							break;
 						
 					}
 				}

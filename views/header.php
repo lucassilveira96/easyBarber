@@ -11,7 +11,7 @@
     <header>
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
             <!-- Brand -->
-            <a class="navbar-brand" href="?c=s&a=h">MVC</a>
+            <a class="navbar-brand" href="?c=s&a=h">EasyBarber</a>
 
             <!-- Toggler/collapsibe Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
