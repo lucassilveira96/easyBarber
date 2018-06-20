@@ -13,7 +13,7 @@ class clientesModel {
         //echo $sql;
     }
 
-    public function getConsulta() {
+    public function getConsult() {
         return $this -> resultado;
     }
 

@@ -5,8 +5,8 @@ class connectClass {
 
     function openConnect() {
         $servername = 'localhost';
-        $username = 'root';
-        $password = '';
+        $username = '*****';
+        $password = '*****';
         $dbname = 'lpw_g2';
         $this -> conn = new mysqli($servername, $username, $password, $dbname);
     }

@@ -1,41 +1,23 @@
 <?php
 
     class clientesController {
-
-        function formCadastro() {
-            require_once ("views/header.php");
-            require_once ("views/clientes/formCadastro.php");
-            require_once ("views/footer.php");
-        }
-
-        function cadastroCliente() {
-            $cliente = array (
-                "nome" => $_POST['nome'],
-                "email" => $_POST['email'],
-                "telefone" => $_POST['telefone'],
-                "endereco" => $_POST['endereco']
-            );
-
-            require_once ("views/header.php");
-            require_once ("views/clientes/cadastroCliente.php");
-            require_once ("views/footer.php");
-        }
-
-        function listaClientes() {
+        function __construct(){
             require_once ("models/clientesModel.php");
-            $cliente = new clientesModel();
-            $cliente -> listaClientes();
-            $resultado = $cliente -> getConsulta();
+     }
+        function listaClientes() {
+            $client = new clientesModel();
+            $client -> listaClientes();
+            $result = $client -> getConsult();
+            
+            $arrayClients = array();
 
-            $arrayClientes = array();
-
-            while($linha = $resultado->fetch_assoc()) {
-                array_push($arrayClientes,$linha);
+            while($line = $result->fetch_assoc()){
+                array_push($arrayClients,$line);
             }
 
             require_once ("views/header.php");
             require_once ("views/clientes/listaClientes.php");
-            require_once ("views/footer.php");
+            
         }
     }
 ?>

@@ -22,18 +22,6 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="?c=s&a=h">Home</a>
-                    </li>
-            
-                    <li class="nav-item">
-                        <a class="nav-link" href="?c=s&a=s">Sobre</a>
-                    </li>
-        
-                    <li class="nav-item">
-                        <a class="nav-link" href="?c=c&a=cc">Cadastro</a>
-                    </li>
-
-                    <li class="nav-item">
                         <a class="nav-link" href="?c=c&a=bb">Listar do BD</a>
                     </li>
 
